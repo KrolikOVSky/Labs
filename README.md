@@ -1,5 +1,5 @@
-# My Labs in 2 semestr
-## How to run it:
+# _My Labs in 2 semestr_
+## _How to run it:_
     
    1. Load repository from [here](https://github.com/KrolikOVSky/Labs.git) `https://github.com/KrolikOVSky/Labs.git`
    2. Run Main class `/src/Main`
