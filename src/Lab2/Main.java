@@ -28,7 +28,7 @@ public class Main{
             System.out.printf("%s, Hash Code: %d\n",live, live.hashCode());
     }
 
-    public static void run(String[] args) {
+    public static void main(String[] args) {
         Live live1 = new Live(PlaceOfLive.Home, 8, true, 10000);
         Live live2 = live1;
         Live live3 = new Live(live1);

@@ -27,7 +27,7 @@ public class Main {
         return content;
     }
 
-    public static void run(String[] args) {
+    public static void main(String[] args) {
         args = fileToString();
         DepartmentStat it = new DepartmentStat("ИИТУТС",10);
         DepartmentStat physics = new DepartmentStat();

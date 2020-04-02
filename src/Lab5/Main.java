@@ -19,7 +19,7 @@ public class Main {
         return content;
     }
 
-    public static void run(String[] args) {
+    public static void main(String[] args) {
         args = fileToString();
         IDepartment it = new DepartmentIStat("ИИТУТС", 10);
         IDepartment physics = new DepartmentIDin("Физика");

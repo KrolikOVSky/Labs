@@ -1,7 +1,7 @@
 package Lab9;
 
 public class Main {
-    public static void run(String[] args) {
+    public static void main(String[] args) {
         System.out.println("Coming soon");
     }
 }

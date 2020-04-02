@@ -15,7 +15,7 @@ public class Main {
         return content;
     }
 
-    public static void run(String[] args) {
+    public static void main(String[] args) {
         args = fileToString();
         Lab4.DepartmentDin it = new Lab4.DepartmentDin("ИИТУТС");
         Lab4.DepartmentDin physics = new Lab4.DepartmentDin("Физика");
