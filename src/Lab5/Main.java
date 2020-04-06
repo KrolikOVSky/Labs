@@ -21,8 +21,8 @@ public class Main {
 
     public static void main(String[] args) {
         args = fileToString();
-        IDepartment it = new DepartmentIStat("ИИТУТС", 10);
-        IDepartment physics = new DepartmentIDin("Физика");
+        IDepartment it = new DepartmentStat("ИИТУТС", 10);
+        IDepartment physics = new DepartmentDin("Физика");
         var j = 0;
 
         for (int i = 0; i < 5; i++) {
@@ -102,11 +102,27 @@ public class Main {
         if (itLecturer1 == null) System.out.printf("No lecturer with id: %d\n", id);
         else System.out.println(itLecturer1);
 
+        System.out.println("\n\nSorting IT department\n");
+        System.out.println("###Before sorting");
+        it.print();
+        System.out.println("\nAfter sorting\n");
+        it.sort();
+        it.print();
+
+        System.out.println("\nSorting PHYSICS department\n");
+        System.out.println("Before sorting");
+        physics.print();
+        System.out.println("\nAfter sorting");
+        physics.sort();
+        physics.print();
+        System.out.println("\n");
+
         setDepStatus(it, "certified with A");
         setDepStatus(physics, "Not certified");
         System.out.println("After certification");
         System.out.printf("%s;\n",it.getNameOfDep());
         System.out.printf("%s;\n",physics.getNameOfDep());
+
 
     }
 }

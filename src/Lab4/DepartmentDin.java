@@ -24,15 +24,15 @@ public class DepartmentDin {
         next = null;
     }
 
-    public void setName(String name) {
+    public void setNameOfDep(String name) {
         lecturer.setSurname(name);
     }
 
-    public String getName() {
+    public String getNameOfDep() {
         return lecturer.getSurname();
     }
 
-    public int getQuantity() {
+    public int getNumberOfLecturer() {
         int number = 0;
         DepartmentDin element = next;
         while (element != null) {
@@ -53,7 +53,7 @@ public class DepartmentDin {
     }
 
     public String toString() {
-        return String.format(DEPARTMENT_FORMAT_STRING, this.lecturer.getSurname(), getQuantity());
+        return String.format(DEPARTMENT_FORMAT_STRING, this.lecturer.getSurname(), getNumberOfLecturer());
     }
 
     public boolean addLecturer(Lecturer lecturer) {
@@ -124,6 +124,26 @@ public class DepartmentDin {
             System.out.printf("%-7d%-15d%-16s%-16s%-10.2f\n", i, element.lecturer.getId(), element.lecturer.getSurname(), element.lecturer.getPosition(), element.lecturer.getSalary());
             element = element.next;
             i++;
+        }
+    }
+
+    public void sort(){
+        boolean flag;
+        DepartmentDin element = this;
+        while (element.next != null) {
+            flag = true;
+            DepartmentDin temp = this;
+            while (temp.next != null) {
+                if (temp.lecturer.getSalary() > temp.next.lecturer.getSalary()) {
+                    Lecturer a = temp.lecturer;
+                    temp.lecturer = temp.next.lecturer;
+                    temp.next.lecturer = a;
+                    flag = false;
+                }
+                temp = temp.next;
+            }
+            if (flag) break;
+            element = element.next;
         }
     }
 }

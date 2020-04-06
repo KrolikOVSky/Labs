@@ -47,7 +47,7 @@ public class Main {
         System.out.printf("%s\n%s\n\n", it, physics);
 
         if(!it.addLecturer(new Lecturer(76544, "Чемшит", "Профессор", 1.75))){
-            System.out.printf("Can't add lecturer 76544 at department %s:", it.getName());
+            System.out.printf("Can't add lecturer 76544 at department %s:", it.getNameOfDep());
             System.out.println("Duplicated id");
         }
 
@@ -72,7 +72,7 @@ public class Main {
         System.out.println("Checking of lecturers:");
         int id = 798465;
         Lecturer itLecturer1 = it.getLecturer(id);
-        System.out.printf("At Department: %s\n", it.getName());
+        System.out.printf("At Department: %s\n", it.getNameOfDep());
         if(itLecturer1 == null) System.out.printf("No lecturer with id: %d\n", id);
         else System.out.println(itLecturer1);
 
@@ -82,12 +82,18 @@ public class Main {
         else System.out.println(itLecturer1);
 
         id = 711165;
-        System.out.printf("At Department: %s\n", physics.getName());
+        System.out.printf("At Department: %s\n", physics.getNameOfDep());
         itLecturer1 = physics.getLecturer(id);
         if(itLecturer1 == null) System.out.printf("No lecturer with id: %d\n", id);
         else System.out.println(itLecturer1);
 
+        System.out.println("--------------------------------\n");
         it.print();
+        System.out.println("--------------------------------\n");
+        it.sort();
+        it.print();
+        System.out.println("--------------------------------\n");
+
 
     }
 }

@@ -1,16 +1,16 @@
 package Lab5;
 
-public class DepartmentIDin implements IDepartment{
+public class DepartmentDin implements IDepartment{
     private Lecturer lecturer;
-    private DepartmentIDin next;
+    private DepartmentDin next;
     private static final String DEPARTMENT_FORMAT_STRING = "Name of department: %s; Quantity of Lecturers: %d; ";
 
-    public DepartmentIDin() {
+    public DepartmentDin() {
         lecturer = null;
         next = null;
     }
 
-    public DepartmentIDin(String name) {
+    public DepartmentDin(String name) {
         lecturer = new Lecturer();
         lecturer.setSurname(name);
         lecturer.setId(0);
@@ -19,7 +19,7 @@ public class DepartmentIDin implements IDepartment{
         next = null;
     }
 
-    public DepartmentIDin(Lecturer lecturer) {
+    public DepartmentDin(Lecturer lecturer) {
         this.lecturer = lecturer;
         next = null;
     }
@@ -34,7 +34,7 @@ public class DepartmentIDin implements IDepartment{
 
     public int getNumberOfLecturer() {
         int number = 0;
-        DepartmentIDin element = next;
+        DepartmentDin element = next;
         while (element != null) {
             number++;
             element = element.next;
@@ -44,7 +44,7 @@ public class DepartmentIDin implements IDepartment{
 
     public Lecturer getLecturer(int id) {
         if (next == null) return null;
-        DepartmentIDin element = next;
+        DepartmentDin element = next;
         while (element != null) {
             if (element.lecturer.getId() == id) return element.lecturer;
             element = element.next;
@@ -58,10 +58,10 @@ public class DepartmentIDin implements IDepartment{
 
     public boolean addLecturer(Lecturer lecturer) {
         if (getLecturer(lecturer.getId()) != null) return false;
-        DepartmentIDin element = new DepartmentIDin(lecturer);
+        DepartmentDin element = new DepartmentDin(lecturer);
         if (next == null) next = element;
         else {
-            DepartmentIDin old = next;
+            DepartmentDin old = next;
             next = element;
             element.next = old;
         }
@@ -69,7 +69,7 @@ public class DepartmentIDin implements IDepartment{
     }
 
     public boolean delLecturer(int id) {
-        DepartmentIDin element = this;
+        DepartmentDin element = this;
         while (element.next != null) {
             if (element.next.lecturer.getId() == id) {
                 element.next = element.next.next;
@@ -84,7 +84,7 @@ public class DepartmentIDin implements IDepartment{
         if (next == null) return 0;
         double middle = 0;
         int number = 0;
-        DepartmentIDin element = next;
+        DepartmentDin element = next;
         while (element != null) {
             middle += element.lecturer.getSalary();
             number++;
@@ -93,10 +93,10 @@ public class DepartmentIDin implements IDepartment{
         return middle / number;
     }
 
-    public DepartmentIDin getAboveMidSalary(){
+    public DepartmentDin getAboveMidSalary(){
         double middle = getMidSalary();
-        DepartmentIDin head = new DepartmentIDin(String.format("Lecturer who has salary above middle %f: ", middle));
-        DepartmentIDin element = next;
+        DepartmentDin head = new DepartmentDin(String.format("Lecturer who has salary above middle %f: ", middle));
+        DepartmentDin element = next;
         while (element != null){
             if(element.lecturer.getSalary() > middle)head.addLecturer(element.lecturer);
             element = element.next;
@@ -104,9 +104,9 @@ public class DepartmentIDin implements IDepartment{
         return head;
     }
 
-    public DepartmentIDin betweenSalary(double a, double b) {
-        DepartmentIDin head = new DepartmentIDin(String.format("Lecturer who have salary between %f to %f", a, b));
-        DepartmentIDin element = next;
+    public DepartmentDin betweenSalary(double a, double b) {
+        DepartmentDin head = new DepartmentDin(String.format("Lecturer who have salary between %f to %f", a, b));
+        DepartmentDin element = next;
         while (element != null) {
             double x = element.lecturer.getSalary();
             if (x >= a && x <= b) head.addLecturer(new Lecturer(element.lecturer));
@@ -118,7 +118,7 @@ public class DepartmentIDin implements IDepartment{
     public void print(){
         System.out.println(lecturer.getSurname());
         System.out.printf("%5s%5s%17s%11s%17s\n", "№", "ID", "Lecturer", "Position", "Salary");
-        DepartmentIDin element = next;
+        DepartmentDin element = next;
         int i = 0;
         while(element != null){
             System.out.printf("%-7d%-15d%-16s%-16s%-10.2f\n", i, element.lecturer.getId(), element.lecturer.getSurname(), element.lecturer.getPosition(), element.lecturer.getSalary());
@@ -128,6 +128,22 @@ public class DepartmentIDin implements IDepartment{
     }
 
     public void sort(){
-
+        boolean flag;
+        DepartmentDin element = this;
+        while (element.next != null) {
+            flag = true;
+            DepartmentDin temp = this;
+            while (temp.next != null) {
+                if (temp.lecturer.getSalary() > temp.next.lecturer.getSalary()) {
+                    Lecturer a = temp.lecturer;
+                    temp.lecturer = temp.next.lecturer;
+                    temp.next.lecturer = a;
+                    flag = false;
+                }
+                temp = temp.next;
+            }
+            if (flag) break;
+            element = element.next;
+        }
     }
 }

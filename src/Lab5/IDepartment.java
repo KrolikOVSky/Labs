@@ -21,4 +21,6 @@ public interface IDepartment {
     IDepartment betweenSalary(double a, double b);
 
     void print();
+
+    void sort();
 }

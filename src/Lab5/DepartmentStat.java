@@ -1,19 +1,19 @@
 package Lab5;
 
-public class DepartmentIStat implements IDepartment {
+public class DepartmentStat implements IDepartment {
     private static final int MIN_NUM = 5;
     private static final String DEPARTMENT_FORMAT_STRING = "Name of department: %s; Quantity of Lecturers: %d; ";
     private String nameOfDep;
     private Lecturer[] lecturerList;
     private int numberOfLecturer;
 
-    public DepartmentIStat() {
+    public DepartmentStat() {
         this.nameOfDep = "";
         this.lecturerList = new Lecturer[MIN_NUM];
         this.numberOfLecturer = 0;
     }
 
-    public DepartmentIStat(String nameOfDep, int num_max) {
+    public DepartmentStat(String nameOfDep, int num_max) {
         this.nameOfDep = nameOfDep;
         this.numberOfLecturer = 0;
         this.lecturerList = new Lecturer[num_max];
@@ -65,9 +65,9 @@ public class DepartmentIStat implements IDepartment {
         return middle / numberOfLecturer;
     }
 
-    public DepartmentIStat getAboveMidSalary() {
+    public DepartmentStat getAboveMidSalary() {
         double middle = getMidSalary();
-        DepartmentIStat list = new DepartmentIStat(String.format("Lecturer with salary above middle %.2f:\n", middle), numberOfLecturer);
+        DepartmentStat list = new DepartmentStat(String.format("Lecturer with salary above middle %.2f:\n", middle), numberOfLecturer);
         for (int i = 0; i < numberOfLecturer; i++) {
             if(lecturerList[i].getSalary() > middle) list.addLecturer(lecturerList[i]);
         }
@@ -89,8 +89,8 @@ public class DepartmentIStat implements IDepartment {
         return Y;*/
     }
 
-    public DepartmentIStat betweenSalary(double a, double b) {
-        DepartmentIStat list = new DepartmentIStat(String.format("Lecturer with salary between [%.2f][%.2f]:\n", a, b), numberOfLecturer);
+    public DepartmentStat betweenSalary(double a, double b) {
+        DepartmentStat list = new DepartmentStat(String.format("Lecturer with salary between [%.2f][%.2f]:\n", a, b), numberOfLecturer);
         for (int i = 0; i < numberOfLecturer; i++) {
             double x = lecturerList[i].getSalary();
             if(x >= a && x <= b) list.addLecturer(lecturerList[i]);
