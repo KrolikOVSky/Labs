@@ -11,7 +11,9 @@ public class Main {
     private static String[] fileToString() {
         String[] content = new String[0];
         try {
-            content = Files.readString(Paths.get("C:\\Users\\alan2\\Desktop\\1.txt")).replaceAll("\r\n", "").split(",");
+//            content = Files.readString(Paths.get("C:\\Users\\alan2\\Desktop\\1.txt")).replaceAll("\r\n", "").split(",");
+            content = Files.readString(Paths.get("resources/1.txt")).replaceAll("\r\n", "").split(",");
+            //resources/1.txt
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -41,20 +41,13 @@ public class Main {
                     System.out.println("Wrong number of Lab");
             }
             boolean a = true;
-            while (a)
-            {
-                System.out.println("Do you want main one more Lab? y/n ");
+            while (a) {
+                System.out.println("Do you want run one more Lab? y/n ");
                 String res = new Scanner(System.in).nextLine();
                 if (res.equals("n")) flag = a = false;
                 else if (res.equals("y")) a = false;
                 else {
-                    try {
-                        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-                    } catch (InterruptedException | IOException e) {
-                        e.printStackTrace();
-                    }
                     System.out.println("Wrong symbol");
-
                 }
 
             }
