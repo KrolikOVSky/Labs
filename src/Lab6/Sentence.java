@@ -72,16 +72,16 @@ public class Sentence {
                 arr[j] = words[i];
                 j = j + 1;
             }
-
         return Arrays.stream(arr).filter(Objects::nonNull).toArray(String[]::new);
+            // Данная операция нужнадля того, чтобы вернуть массив строк без null элементов
     }
 
     public String upCaseAndLengthAboveN(int N) {
-        var string = "";
+        StringBuilder string = new StringBuilder();
         for (var str : wordsLengthAboveN(N)) {
-            if (str != null && Character.isUpperCase(str.charAt(0))) string += String.format("%s ", str);
+            if (str != null && Character.isUpperCase(str.charAt(0))) string.append(String.format("%s ", str));
         }
-        return string;
+        return string.toString();
     }
 
 }

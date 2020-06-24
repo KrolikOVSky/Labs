@@ -24,10 +24,12 @@ public class Main {
         Sentence sentence = new Sentence("  А   Алиса  спрятала    ключик под    коврик  ");
         System.out.printf("Main sentence: \"%s\"\n", sentence);
         System.out.print("Words from sentence: ");
-        printArray(sentence.getWords());
-        int length = 3;
-        System.out.printf("Words with first up case letter and length above %d: %s\n\n", length, sentence.upCaseAndLengthAboveN(length));
-        var string = "ананас";
-        System.out.printf("Original string: %s\nFirst replacement \"а\" -> \"е\": %s\nSecond replacement \"н\" -> \"t\": %s\n", string, replacement(string, 'а', 'е'), replacement(string, 'н', 't'));
+        System.out.println();
+        System.out.println(Arrays.toString(sentence.wordsLengthAboveN(3)));
+//        printArray(sentence.getWords());
+//        int length = 3;
+//        System.out.printf("Words with first up case letter and length above %d: %s\n\n", length, sentence.upCaseAndLengthAboveN(length));
+//        var string = "ананас";
+//        System.out.printf("Original string: %s\nFirst replacement \"а\" -> \"е\": %s\nSecond replacement \"н\" -> \"t\": %s\n", string, replacement(string, 'а', 'е'), replacement(string, 'н', 't'));
     }
 }

@@ -2,7 +2,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         boolean flag = true;
         while (flag) {
             System.out.println("Enter Number Of Lab");
